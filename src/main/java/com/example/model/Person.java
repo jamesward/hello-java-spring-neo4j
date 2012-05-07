@@ -1,26 +1,24 @@
 package com.example.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.data.neo4j.annotation.GraphId;
+import org.springframework.data.neo4j.annotation.NodeEntity;
 
-@Entity
+@NodeEntity
 public class Person {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
+    @GraphId
+    private Long id;
 
     private String firstName;
 
     private String lastName;
 
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

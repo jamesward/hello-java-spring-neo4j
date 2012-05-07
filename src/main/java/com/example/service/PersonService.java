@@ -1,13 +1,10 @@
 package com.example.service;
 
-
-import java.util.List;
-
 import com.example.model.Person;
+import org.springframework.data.neo4j.repository.GraphRepository;
+import org.springframework.data.neo4j.repository.NamedIndexRepository;
 
-public interface PersonService {
+public interface PersonService extends GraphRepository<Person>, NamedIndexRepository<Person> {
+
     
-    public void addPerson(Person person);
-    public List<Person> listPeople();
-    public void removePerson(Integer id);
 }

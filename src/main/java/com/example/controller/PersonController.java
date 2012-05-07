@@ -2,7 +2,7 @@ package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,23 +23,25 @@ public class PersonController {
     public String listPeople(Map<String, Object> map) {
 
         map.put("person", new Person());
-        map.put("peopleList", personService.listPeople());
+        map.put("peopleList", personService.findAll().iterator());
 
         return "people";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addPerson(@ModelAttribute("person") Person person, BindingResult result) {
+    @Transactional
+    public String addPerson(@ModelAttribute("person") Person person) {
 
-        personService.addPerson(person);
+        personService.save(person);
 
         return "redirect:/people/";
     }
 
     @RequestMapping("/delete/{personId}")
-    public String deletePerson(@PathVariable("personId") Integer personId) {
+    @Transactional
+    public String deletePerson(@PathVariable("personId") Long personId) {
 
-        personService.removePerson(personId);
+        personService.delete(personId);
 
         return "redirect:/people/";
     }
