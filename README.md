@@ -6,9 +6,9 @@ This is a template for a web application that uses Spring MVC and Hibernate. The
 
 First build with:
 
-    $mvn clean install
+    $ mvn clean install
 
 Then run it with:
 
-    $java -jar target/dependency/webapp-runner.jar target/*.war
+    $ java -jar target/dependency/webapp-runner.jar target/*.war
 
