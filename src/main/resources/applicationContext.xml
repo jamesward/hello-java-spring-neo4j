@@ -33,9 +33,9 @@
 
     <beans profile="prod">
         <bean class="org.springframework.data.neo4j.rest.SpringRestGraphDatabase" id="graphDatabaseService">
-            <constructor-arg index="0" value="${NEO4J_REST_URL}"/>
-            <constructor-arg index="1" value="${NEO4J_LOGIN}"/>
-            <constructor-arg index="2" value="${NEO4J_PASSWORD}"/>
+            <constructor-arg index="0" value="#{systemEnvironment['NEO4J_REST_URL']"/>
+            <constructor-arg index="1" value="#{systemEnvironment['NEO4J_LOGIN']"/>
+            <constructor-arg index="2" value="#{systemEnvironment['NEO4J_PASSWORD']"/>
         </bean>
         
         <neo4j:config graphDatabaseService="graphDatabaseService"/>
