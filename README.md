@@ -14,21 +14,16 @@ Then run it with:
 
 ## Running on Heroku
 
-Create a git repo (if you don't have one already):
+Clone this project locally:
 
-    $ git init
-
-Add and commit the files:
-
-    $ git add .
-    $ git commit -m init
+    $ git clone git://github.com/jamesward/hello-java-spring-neo4j.git
 
 Create a new app on Heroku (make sure you have the [Heroku Toolbelt](http://toolbelt.heroku.com) installed):
 
     $ heroku login
     $ heroku create -s cedar
 
-Add the Neo4j Heroku Add-on:
+Add the Neo4j Heroku Add-on (this requires a verified account):
 
     $ heroku addons:add neo4j
 
